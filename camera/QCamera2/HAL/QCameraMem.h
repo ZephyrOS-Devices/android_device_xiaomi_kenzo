@@ -220,6 +220,13 @@ public:
     int convCamtoOMXFormat(cam_format_t format);
     int getUsage(){return mUsage;};
     int getFormat(){return mFormat;};
+
+#ifdef USE_MEDIA_EXTENSIONS
+    native_handle_t *getNativeHandle(uint32_t index, bool metadata = true);
+    static int closeNativeHandle(const void *data);
+    int closeNativeHandle(const void *data, bool metadata);
+#endif
+
 private:
     camera_memory_t *mMetadata[MM_CAMERA_MAX_NUM_FRAMES];
     uint8_t mMetaBufCount;
