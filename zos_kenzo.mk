@@ -18,18 +18,21 @@
 $(call inherit-product, device/xiaomi/kenzo/full_kenzo.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/zos/common.mk)
 
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := kenzo
-PRODUCT_NAME := lineage_kenzo
+PRODUCT_NAME := zos_kenzo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi Note 3
 TARGET_VENDOR := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+
+PRODUCT_BUILD_PROP_OVERRIDES += DEVICE_MAINTAINERS="Bitti09"
 
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)
